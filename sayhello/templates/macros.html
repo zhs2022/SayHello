@@ -1,0 +1,9 @@
+{% macro form_field(field) %}
+    {{ field.label }}<br>
+    {{ field(**kwargs )}}<br> <!--表单字段对象会被渲染成input元素，且将关键字参数作为input元素的属性-->
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <small class="error"> {{error}} </small><br>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
